@@ -13,5 +13,5 @@ jobs:
     - name: Build the Docker image
       run: |
         echo "${{ secrets.DOCKERPW }}" | docker login -u "bryanarmijos" --password-stdin
-        docker image build -t bryanarmijos/hello-world:v1 .
-        docker push bryanarmijos/hello-world:v1
+        docker image build -t bryanarmijos/hello-world:v2 .
+        docker push bryanarmijos/hello-world:v2
