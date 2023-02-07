@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - id: foo
-        uses: Bearmijos/hello-amex@v1
+        uses: Bearmijos/hello-amex@v2
         with:
           who-to-greet: 'Amex Cloud!'
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
