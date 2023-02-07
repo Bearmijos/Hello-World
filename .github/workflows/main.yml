@@ -9,9 +9,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: |
-        echo "${{ secrets.DOCKERPW }}" | docker login -u "bryanarmijos" --password-stdin
-        docker image build -t bryanarmijos/hello-world:v2 .
-        docker push bryanarmijos/hello-world:v2
+      - uses: actions/checkout@v3
+      - id: foo
+        uses: Bearmijos/hello-amex@v1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+        shell: bash
+#     - name: Build the Docker image
+#       run: |
+#         echo "${{ secrets.DOCKERPW }}" | docker login -u "bryanarmijos" --password-stdin
+#         docker image build -t bryanarmijos/hello-world:v2 .
+#         docker push bryanarmijos/hello-world:v2
